@@ -1,0 +1,18 @@
+{
+  "nodes": [
+    {"id": "GOV-001", "node_type": "GOV", "name": "Governance Objective"},
+    {"id": "PROC-001", "node_type": "PROC", "name": "Primary Process"},
+    {"id": "PROC-002", "node_type": "PROC", "name": "Alternate Process"},
+    {"id": "CTRL-001", "node_type": "CTRL", "name": "Control"},
+    {"id": "EVID-001", "node_type": "EVID", "name": "Evidence"},
+    {"id": "ASSR-001", "node_type": "ASSR", "name": "Assurance Conclusion"}
+  ],
+  "relationships": [
+    {"id": "REL-0001", "source": "GOV-001", "target": "PROC-001", "relationship_type": "GOVERNS", "strength": 0.95, "confidence": 0.95, "criticality": 0.9, "propagation_potential": 0.9},
+    {"id": "REL-0002", "source": "GOV-001", "target": "PROC-002", "relationship_type": "GOVERNS", "strength": 0.7, "confidence": 0.75, "criticality": 0.5, "propagation_potential": 0.6},
+    {"id": "REL-0003", "source": "PROC-001", "target": "CTRL-001", "relationship_type": "IMPLEMENTS", "strength": 0.9, "confidence": 0.9, "criticality": 0.85, "propagation_potential": 0.8},
+    {"id": "REL-0004", "source": "PROC-002", "target": "CTRL-001", "relationship_type": "SUPPORTS", "strength": 0.6, "confidence": 0.7, "criticality": 0.4, "propagation_potential": 0.5},
+    {"id": "REL-0005", "source": "CTRL-001", "target": "EVID-001", "relationship_type": "PRODUCES", "strength": 0.95, "confidence": 0.9, "criticality": 0.95, "propagation_potential": 0.85, "seam_type": "control-to-evidence"},
+    {"id": "REL-0006", "source": "EVID-001", "target": "ASSR-001", "relationship_type": "SUPPORTS", "strength": 0.9, "confidence": 0.85, "criticality": 1.0, "propagation_potential": 0.9, "seam_type": "evidence-to-assurance"}
+  ]
+}

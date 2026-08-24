@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grc-analysis-engine"
+version = "0.1.0"
+description = "Deterministic graph analysis foundation for Governance Intelligence."
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+dependencies = [
+  "fastapi>=0.115",
+  "networkx>=3.4",
+  "pydantic>=2.10",
+  "uvicorn>=0.34",
+]
+
+[project.optional-dependencies]
+neo4j = [
+  "neo4j>=6,<7",
+  "graphdatascience>=1.22,<2",
+]
+dev = [
+  "httpx>=0.28",
+  "pytest>=8.3",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
